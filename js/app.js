@@ -39,17 +39,25 @@ class Runner {
   handleInput(allowedKeys) {
     switch(allowedKeys) {
       case 'left':
-        this.x -= 101;
+        if (this.x > 100) {
+          this.x -= 101;
+        }
         break;
       case 'up':
-        this.y -= 83;
+        if (this.y > 0) {
+          this.y -= 83;
+        }
         break;
       case 'right':
-        this.x += 101;
+        if (this.x < 405) {
+          this.x += 101;
+        }
         break;
       case 'down':
-        this.y += 83;
-        break;
+        if (this.y < 333) {
+          this.y += 83;
+        }
+          break;
     }
   }
   update() {
