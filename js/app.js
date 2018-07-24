@@ -15,6 +15,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.x < 506) {
+      this.x += 150 * dt;
+    } else {
+      this.x = -83;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -69,15 +74,15 @@ class Runner {
 
 // Now instantiate your objects.
 const enemy1 = new Enemy();
-enemy1.x = 0;
+enemy1.x = -83;
 enemy1.y = 63;
 
 const enemy2 = new Enemy();
-enemy2.x = 0;
+enemy2.x = -83;
 enemy2.y = 146;
 
 const enemy3 = new Enemy();
-enemy3.x = 0;
+enemy3.x = -83;
 enemy3.y = 228;
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
