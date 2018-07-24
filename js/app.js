@@ -16,9 +16,9 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 506) {
-      this.x += 150 * dt;
+      this.x += 200 * dt;
     } else {
-      this.x = -83;
+      this.x = -101;
     }
 };
 
@@ -35,7 +35,6 @@ class Runner {
     this.x = 203;
     this.y = 405;
     this.sprite = 'images/char-boy.png';
-    console.log('Runner works');
   }
 
   render() {
@@ -74,15 +73,15 @@ class Runner {
 
 // Now instantiate your objects.
 const enemy1 = new Enemy();
-enemy1.x = -83;
+enemy1.x = -101;
 enemy1.y = 63;
 
 const enemy2 = new Enemy();
-enemy2.x = -83;
+enemy2.x = -101;
 enemy2.y = 146;
 
 const enemy3 = new Enemy();
-enemy3.x = -83;
+enemy3.x = -101;
 enemy3.y = 228;
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
