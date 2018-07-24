@@ -7,6 +7,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.rate = 20;
 };
 
 // Update the enemy's position, required method for game
@@ -16,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 506) {
-      this.x += 200 * dt;
+      this.x += this.rate * dt;
     } else {
       this.x = -101;
     }
@@ -75,14 +76,17 @@ class Runner {
 const enemy1 = new Enemy();
 enemy1.x = -101;
 enemy1.y = 63;
+enemy1.rate = 100;
 
 const enemy2 = new Enemy();
 enemy2.x = -101;
 enemy2.y = 146;
+enemy2.rate = 140;
 
 const enemy3 = new Enemy();
 enemy3.x = -101;
 enemy3.y = 228;
+enemy3.rate = 200;
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 allEnemies.push(enemy1);
