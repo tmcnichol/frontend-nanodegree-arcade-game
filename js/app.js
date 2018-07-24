@@ -68,8 +68,22 @@ class Runner {
 
 
 // Now instantiate your objects.
+const enemy1 = new Enemy();
+enemy1.x = 0;
+enemy1.y = 63;
+
+const enemy2 = new Enemy();
+enemy2.x = 0;
+enemy2.y = 146;
+
+const enemy3 = new Enemy();
+enemy3.x = 0;
+enemy3.y = 228;
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [new Enemy(), new Enemy(), new Enemy(),];
+const allEnemies = [];
+allEnemies.push(enemy1);
+allEnemies.push(enemy2);
+allEnemies.push(enemy3);
 
 // Place the player object in a variable called player
 const player = new Runner();
