@@ -24,7 +24,39 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+class Runner {
+  constructor() {
+    this.x = 203;
+    this.y = 405;
+    this.sprite = 'images/char-boy.png';
+    console.log('Runner works');
+  }
 
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+  handleInput(allowedKeys) {
+    switch(allowedKeys) {
+      case 'left':
+        this.x -= 101;
+        break;
+      case 'up':
+        this.y -= 83;
+        break;
+      case 'right':
+        this.x += 101;
+        break;
+      case 'down':
+        this.y += 83;
+        break;
+    }
+  }
+  update() {
+
+  }
+};
+
+const player = new Runner();
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
