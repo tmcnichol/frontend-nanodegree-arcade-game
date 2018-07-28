@@ -36,6 +36,7 @@ class Runner {
     this.x = 203;
     this.y = 405;
     this.sprite = 'images/char-boy.png';
+    this.score = 0;
   }
 
   render() {
@@ -68,24 +69,36 @@ class Runner {
   }
 
   update() {
+    let score = 0;
     if (this.y < 0) {
       this.x = 203;
       this.y = 405;
+      this.score += 1;
+      console.log(this.score);
     }
-    if (this.y === enemy1.y && this.x - enemy1.x > -70 && this.x - enemy1.x < 70 ) {
+    if (this.y === enemy1.y && this.x - enemy1.x > -75 && this.x - enemy1.x < 75 ) {
       this.x = 203;
       this.y = 405;
-      console.log(player, enemy2);
-    }
-    if (this.y === enemy2.y && this.x - enemy2.x > -70 && this.x - enemy2.x < 70 ) {
+      this.score -= 1;
+      console.log(this.score);
+      }
+    if (this.y === enemy2.y && this.x - enemy2.x > -75 && this.x - enemy2.x < 75 ) {
       this.x = 203;
       this.y = 405;
-      console.log(player, enemy2);
+      this.score -= 1;
+      console.log(this.score);
     }
-    if (this.y === enemy3.y && this.x - enemy3.x > -70 && this.x - enemy3.x < 70 ) {
+    if (this.y === enemy3.y && this.x - enemy3.x > -75 && this.x - enemy3.x < 75 ) {
       this.x = 203;
       this.y = 405;
-      console.log(player, enemy2);
+      this.score -= 1;
+      console.log(this.score);
+    }
+    if (this.y === enemy4.y && this.x - enemy4.x > -75 && this.x - enemy4.x < 75 ) {
+      this.x = 203;
+      this.y = 405;
+      this.score -= 1;
+      console.log(this.score);
     }
   }
 };
@@ -94,22 +107,28 @@ class Runner {
 const enemy1 = new Enemy();
 enemy1.x = -101;
 enemy1.y = 73;
-enemy1.rate = 100;
+enemy1.rate = 190;
 
 const enemy2 = new Enemy();
 enemy2.x = -101;
 enemy2.y = 156;
-enemy2.rate = 140;
+enemy2.rate = 110;
 
 const enemy3 = new Enemy();
 enemy3.x = -101;
 enemy3.y = 239;
-enemy3.rate = 200;
+enemy3.rate = 240;
+
+const enemy4 = new Enemy();
+enemy4.x = -101;
+enemy4.y = 156;
+enemy4.rate = 260;
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 allEnemies.push(enemy1);
 allEnemies.push(enemy2);
 allEnemies.push(enemy3);
+allEnemies.push(enemy4);
 
 // Place the player object in a variable called player
 const player = new Runner();
