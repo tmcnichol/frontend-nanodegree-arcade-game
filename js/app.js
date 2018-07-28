@@ -7,7 +7,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.rate = 20;
+    this.rate = 40;
 };
 
 // Update the enemy's position, required method for game
@@ -41,6 +41,7 @@ class Runner {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+
   handleInput(allowedKeys) {
     switch(allowedKeys) {
       case 'left':
@@ -65,27 +66,44 @@ class Runner {
           break;
     }
   }
-  update() {
 
+  update() {
+    if (this.y < 0) {
+      this.x = 203;
+      this.y = 405;
+    }
+    if (this.y === enemy1.y && this.x - enemy1.x > -70 && this.x - enemy1.x < 70 ) {
+      this.x = 203;
+      this.y = 405;
+      console.log(player, enemy2);
+    }
+    if (this.y === enemy2.y && this.x - enemy2.x > -70 && this.x - enemy2.x < 70 ) {
+      this.x = 203;
+      this.y = 405;
+      console.log(player, enemy2);
+    }
+    if (this.y === enemy3.y && this.x - enemy3.x > -70 && this.x - enemy3.x < 70 ) {
+      this.x = 203;
+      this.y = 405;
+      console.log(player, enemy2);
+    }
   }
 };
-
-
 
 // Now instantiate your objects.
 const enemy1 = new Enemy();
 enemy1.x = -101;
-enemy1.y = 63;
+enemy1.y = 73;
 enemy1.rate = 100;
 
 const enemy2 = new Enemy();
 enemy2.x = -101;
-enemy2.y = 146;
+enemy2.y = 156;
 enemy2.rate = 140;
 
 const enemy3 = new Enemy();
 enemy3.x = -101;
-enemy3.y = 228;
+enemy3.y = 239;
 enemy3.rate = 200;
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
