@@ -1,11 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
     this.x = Math.random() * window.innerWidth;
     this.y = Math.random() * window.innerHeight;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.rate = 40;
 };
@@ -13,24 +9,17 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
     if (this.x < 506) {
       this.x += this.rate * dt;
     } else {
       this.x = -101;
     }
 };
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// The class for our main player, who I've called Runner
 class Runner {
   constructor() {
     this.x = 203;
@@ -103,7 +92,7 @@ class Runner {
   }
 };
 
-// Now instantiate your objects.
+// All enemy objects
 const enemy1 = new Enemy();
 enemy1.x = -101;
 enemy1.y = 73;
@@ -123,16 +112,15 @@ const enemy4 = new Enemy();
 enemy4.x = -101;
 enemy4.y = 156;
 enemy4.rate = 260;
-// Place all enemy objects in an array called allEnemies
+// All enemy objects in an array:
 const allEnemies = [];
 allEnemies.push(enemy1);
 allEnemies.push(enemy2);
 allEnemies.push(enemy3);
 allEnemies.push(enemy4);
 
-// Place the player object in a variable called player
+// Place the Runner object in a variable called player
 const player = new Runner();
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
